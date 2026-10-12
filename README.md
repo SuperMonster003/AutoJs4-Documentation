@@ -57,4 +57,4 @@ The table below lists these projects and how they relate to each other, with dir
 
 ******
 
-* [点此阅读 (网页版)](https://docs.autojs6.com)
+* [点此阅读 (网页版)](https://supermonster003.github.io/AutoJs4-Documentation/)
