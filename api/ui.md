@@ -6,7 +6,7 @@ ui模块提供了编写用户界面的支持。
     View: https://developer.android.google.cn/reference/android/view/View?hl=cn
     Widget: https://developer.android.google.cn/reference/android/widget/package-summary?hl=cn
 
-带有ui的脚本的的最前面必须使用`"ui";`指定ui模式，否则脚本将不会以ui模式运行。正确示范:s
+带有ui的脚本的的最前面必须使用`"ui";`指定ui模式，否则脚本将不会以ui模式运行。正确示范:
 
 ```
 "ui";
@@ -22,7 +22,7 @@ ui模块提供了编写用户界面的支持。
 
 ```
 "ui";
-$ui.layout(
+ui.layout(
     <vertical>
         <button text="第一个按钮"/>
         <button text="第二个按钮"/>
@@ -84,24 +84,24 @@ ui.layout(
 ```javascript
 "ui";
 
-$ui.layout(
+ui.layout(
     <frame>
         <text id="example" text="Hello"/>
     </frame>
 );
 
 // 5秒后执行
-$ui.post(() => {
+ui.post(() => {
     // 修改文本
-    $ui.example.attr("text", "Hello, Auto.js UI");
+    ui.example.attr("text", "Hello, Auto.js UI");
     // 修改背景
-    $ui.example.attr("bg", "#ff00ff");
+    ui.example.attr("bg", "#ff00ff");
     // 修改高度
-    $ui.example.attr("h", "500dp");
+    ui.example.attr("h", "500dp");
 }, 5000);
 ```
 
-**注意：**并不是所有属性都能在js代码设置，有一些属性只能在布局创建时设置，例如style属性；还有一些属性虽然能在代码中设置，但是还没支持；对于这些情况，在Auto.js Pro 8.1.0+会抛出异常，其他版本则不会抛出异常。
+**注意：**并不是所有属性都能在js代码设置，有一些属性只能在布局创建时设置，例如style属性；还有一些属性虽然能在代码中设置，但是还没支持。
 
 ## attr(name)
 * `name` {string} 属性名称
@@ -112,7 +112,7 @@ $ui.post(() => {
 ```javascript
 "ui";
 
-$ui.layout(
+ui.layout(
     <frame>
         <text id="example" text="1"/>
     </frame>
@@ -122,15 +122,15 @@ plusOne();
 
 function plusOne() {
     // 获取文本
-    let text = $ui.example.attr("text");
+    let text = ui.example.attr("text");
     // 解析为数字
     let num = parseInt(text);
     // 数字加1
     num++;
     // 设置文本
-    $ui.example.attr("text", String(num));
+    ui.example.attr("text", String(num));
     // 1秒后继续
-    $ui.post(plusOne, 1000);
+    ui.post(plusOne, 1000);
 }
 
 ```
@@ -932,7 +932,7 @@ ui.layout(
 ```javascript
 "ui";
 
-$ui.layout(
+ui.layout(
     <linear id="container">
     </linear>
 );
@@ -941,11 +941,11 @@ $ui.layout(
 // 这里仅为实例，实际上并不推荐这种做法，如果要展示列表，
 // 使用list组件；动态创建十几个、几十个View会让界面卡顿
 for (let i = 0; i < 3; i++) {
-    let textView = $ui.inflate(
+    let textView = ui.inflate(
         <text textColor="#000000" textSize="14sp"/>
-    , $ui.container);
+    , ui.container);
     textView.attr("text", "文本控件" + i);
-    $ui.container.addView(textView);
+    ui.container.addView(textView);
 }
 ```
 # ui.registerWidget(name, widget)
@@ -962,10 +962,10 @@ for (let i = 0; i < 3; i++) {
 ```javascript
 "ui";
 
-log($ui.isUiThread()); // => true
+log(ui.isUiThread()); // => true
 
-$threads.start(function () {
-    log($ui.isUiThread()); // => false
+threads.start(function () {
+    log(ui.isUiThread()); // => false
 });
 
 ```
@@ -976,7 +976,7 @@ $threads.start(function () {
 
 在当前视图中根据ID查找相应的视图对象并返回。如果当前未设置视图或找不到此ID的视图时返回`null`。
 
-一般我们都是通过`ui.xxx`来获取id为xxx的控件，如果xxx是一个ui已经有的属性，就可以通过`$ui.findView()`来获取这个控件。
+一般我们都是通过`ui.xxx`来获取id为xxx的控件，如果xxx是一个ui已经有的属性，就可以通过`ui.findView()`来获取这个控件。
 
 ## ui.finish()
 
@@ -1005,10 +1005,10 @@ ui.layout(
 );
 
 ui.result.attr("text", "计算中");
-// 在子线程中计算1+ ... + 10000000
-threads.start({
+// 在子线程中计算1+ ... + 1000000
+threads.start(function () {
     let sum = 0;
-    for (let i = 0; i < 1000000; i++) {
+    for (let i = 1; i <= 1000000; i++) {
         sum += i;
     }
     // 由于不能在子线程操作UI，所以要抛到UI线程执行
@@ -1033,31 +1033,6 @@ threads.start({
 "ui";
 ui.statusBarColor("#000000");
 ```
-
-## ui.useAndroidResources()
-
-启用使用Android的布局(layout)、绘图(drawable)、动画(anim)、样式(style)等资源的特性。启用该特性后，在project.json中进行以下配置，就可以像写Android原生一样写界面：
-```json
-{
-    // ...
-    androidResources: {
-        "resDir": "res",  // 资源文件夹
-        "manifest": "AndroidManifest.xml" // AndroidManifest文件路径
-    }
-}
-```
-
-res文件夹通常为以下结构：
-
-```
-- res
-    - layout  // 布局资源
-    - drawable // 图片、形状等资源
-    - menu // 菜单资源
-    - values // 样式、字符串等资源
-    // ...
-```
-可参考示例->复杂界面->Android原生界面。
 
 # 尺寸的单位: Dimension
 

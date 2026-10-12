@@ -5,7 +5,6 @@
 * [一般全局函数 - Globals](/globals)
 * [控制台 - Console](/console)
 * [基于坐标的操作 - CoordinatesBasedAutomation](/coordinatesBasedAutomation)
-* [加解密与消息摘要 - Crypto](/crypto)
 * [设备 - Device](/device)
 * [对话框 - Dialogs](/dialogs)
 * [脚本引擎 - Engines](/engines)

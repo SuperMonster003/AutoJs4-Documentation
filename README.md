@@ -6,9 +6,11 @@
 
 [AutoJs4](https://github.com/SuperMonster003/AutoJs4) 应用文档, 克隆 (Clone) 自 [hyb1996/AutoJs-Docs](https://github.com/hyb1996/AutoJs-Docs/).
 
-AutoJs-Docs 项目 (称为 "Auto.js 开源文档项目") 由 [hyb1996](https://github.com/hyb1996) 于 `2017/08/21` 初次发布, 于 `2017/09/11` 停止维护, 最终文档名称为 `4.1.0`.
+AutoJs-Docs 项目 (称为 "Auto.js 开源文档项目") 由 [hyb1996](https://github.com/hyb1996) 于 `2017/08/21` 初次发布. 本项目以原作者于 `2018/12/21` 发布的 `4.1.0` 文档为核对基准; 原项目此后仍有更新, 并混入了 Auto.js Pro 的内容.
 
-此项目为 "Auto.js 开源文档项目" 的备份项目, 保持原项目文档的结构和内容, 不做任何改动.
+此项目保留 Auto.js `4.1.0` 开源版的文档结构与适用内容, 移除 Pro 专属接口和说明, 并保留适用于开源版的勘误与补充说明.
+
+正文核对依据为原文档历史提交 [`0daee2a`](https://github.com/GitCourser/AutoJs-Docs-original/commit/0daee2a17c54f531af33b7f98394508bc727b6d9) (原仓库已不可访问, 此链接为保留原提交的镜像), 以及 [AutoJs4 保存的原版源码](https://github.com/SuperMonster003/AutoJs4/tree/8de1169/autojs/src/main). 后续补充的 Canvas 和 UI 接口已对照原版源码核实; 混入的 Pro 接口、带 `$` 的 Pro 模块别名示例和不适用于 Auto.js 的 Node.js `util` 参考文档已清理.
 
 ******
 

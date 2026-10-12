@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>shell函数 | Auto.js 4.1.0</title>
+  <title>shell函数 | Auto.js 4.1.0 文档</title>
   <link rel="stylesheet" href="assets/fonts.css">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/sh.css">
@@ -30,7 +30,6 @@
 <li><a class="nav-canvas" href="canvas.html">Canvas - 画布</a></li>
 <li><a class="nav-console" href="console.html">Console - 控制台</a></li>
 <li><a class="nav-coordinatesBasedAutomation" href="coordinatesBasedAutomation.html">CoordinatesBasedAutomation - 基于坐标的操作</a></li>
-<li><a class="nav-crypto" href="crypto.html">Crypto - 加解密与消息摘要</a></li>
 <li><a class="nav-device" href="device.html">Device - 设备</a></li>
 <li><a class="nav-dialogs" href="dialogs.html">Dialogs - 对话框</a></li>
 <li><a class="nav-engines" href="engines.html">Engines - 脚本引擎</a></li>
@@ -63,7 +62,7 @@
 
     <div id="column1" data-id="shell" class="interior">
       <header>
-        <h1>Auto.js 4.1.0</h1>
+        <h1>Auto.js 4.1.0 文档</h1>
         <div id="gtoc">
           <p>
             <a href="index.html" name="toc">索引</a> |
@@ -295,9 +294,10 @@ sh.exit();
 <h3>monitor [options]    启动对崩溃或 ANR 的监控。<span><a class="mark" href="#shell_monitor_options_anr" id="shell_monitor_options_anr">#</a></span></h3>
 <p>选项包括：</p>
 <ul>
-<li>--gdb：在崩溃/ANR 时在给定端口上启动 gdbserv。<h3>screen-compat <span class="type">&lt;on&gt;</span> | <span class="type">&lt;off&gt;</span> package<span><a class="mark" href="#shell_screen_compat_span_class_type_lt_on_gt_span_span_class_type_lt_off_gt_span_package" id="shell_screen_compat_span_class_type_lt_on_gt_span_span_class_type_lt_off_gt_span_package">#</a></span></h3>
-控制 package 的屏幕兼容性模式。</li>
+<li>--gdb：在崩溃/ANR 时在给定端口上启动 gdbserv。</li>
 </ul>
+<h3>screen-compat <span class="type">&lt;on&gt;</span> | <span class="type">&lt;off&gt;</span> package<span><a class="mark" href="#shell_screen_compat_span_class_type_lt_on_gt_span_span_class_type_lt_off_gt_span_package" id="shell_screen_compat_span_class_type_lt_on_gt_span_span_class_type_lt_off_gt_span_package">#</a></span></h3>
+<p>控制 package 的屏幕兼容性模式。</p>
 <h3>display-size [reset|widthxheight]<span><a class="mark" href="#shell_display_size_reset_widthxheight" id="shell_display_size_reset_widthxheight">#</a></span></h3>
 <p>替换模拟器/设备显示尺寸。此命令对于在不同尺寸的屏幕上测试您的应用非常有用，它支持使用大屏设备模仿小屏幕分辨率（反之亦然）。<br>示例：</p>
 <pre><code>shell(&quot;am display-size 1280x800&quot;, true);
@@ -353,9 +353,10 @@ sh.exit();
 <li>--activity-task-on-home<br>包含标志 FLAG_ACTIVITY_TASK_ON_HOME。</li>
 <li>--receiver-registered-only<br>包含标志 FLAG_RECEIVER_REGISTERED_ONLY。</li>
 <li>--receiver-replace-pending<br>包含标志 FLAG_RECEIVER_REPLACE_PENDING。</li>
-<li>--selector<br>需要使用 -d 和 -t 选项以设置 intent 数据和类型。<h4>URI component package<span><a class="mark" href="#shell_uri_component_package" id="shell_uri_component_package">#</a></span></h4>
-如果不受上述某一选项的限制，您可以直接指定 URI、软件包名称和组件名称。当参数不受限制时，如果参数包含一个“:”（冒号），则此工具假定参数是一个 URI；如果参数包含一个“/”（正斜杠），则此工具假定参数是一个组件名称；否则，此工具假定参数是一个软件包名称。</li>
+<li>--selector<br>需要使用 -d 和 -t 选项以设置 intent 数据和类型。</li>
 </ul>
+<h4>URI component package<span><a class="mark" href="#shell_uri_component_package" id="shell_uri_component_package">#</a></span></h4>
+<p>如果不受上述某一选项的限制，您可以直接指定 URI、软件包名称和组件名称。当参数不受限制时，如果参数包含一个“:”（冒号），则此工具假定参数是一个 URI；如果参数包含一个“/”（正斜杠），则此工具假定参数是一个组件名称；否则，此工具假定参数是一个软件包名称。</p>
 <h2>应用包名<span><a class="mark" href="#shell" id="shell">#</a></span></h2>
 <p>所谓应用包名，是唯一确定应用的标识。例如微信的包名是&quot;com.tencent.mm&quot;, QQ的包名是&quot;com.tencent.mobileqq&quot;。<br>要获取一个应用的包名，可以通过函数<code>getPackageName(appName)</code>获取。参见帮助-&gt;其他一般函数。</p>
 <h2>pm命令<span><a class="mark" href="#shell_pm" id="shell_pm">#</a></span></h2>
@@ -412,9 +413,10 @@ sh.exit();
 <h3>uninstall [options] package<span><a class="mark" href="#shell_uninstall_options_package" id="shell_uninstall_options_package">#</a></span></h3>
 <p>从系统中卸载软件包。<br>选项：</p>
 <ul>
-<li>-k：移除软件包后保留数据和缓存目录。<h3>clear package<span><a class="mark" href="#shell_clear_package" id="shell_clear_package">#</a></span></h3>
-删除与软件包关联的所有数据。</li>
+<li>-k：移除软件包后保留数据和缓存目录。</li>
 </ul>
+<h3>clear package<span><a class="mark" href="#shell_clear_package" id="shell_clear_package">#</a></span></h3>
+<p>删除与软件包关联的所有数据。</p>
 <h3>enable package_or_component<span><a class="mark" href="#shell_enable_package_or_component" id="shell_enable_package_or_component">#</a></span></h3>
 <p>启用给定软件包或组件（作为“package/class”写入）。</p>
 <h3>disable package_or_component<span><a class="mark" href="#shell_disable_package_or_component" id="shell_disable_package_or_component">#</a></span></h3>
@@ -422,9 +424,10 @@ sh.exit();
 <h3>disable-user [options] package_or_component<span><a class="mark" href="#shell_disable_user_options_package_or_component" id="shell_disable_user_options_package_or_component">#</a></span></h3>
 <p>选项：</p>
 <ul>
-<li>--user user_id：要停用的用户。<h3>grant package_name permission<span><a class="mark" href="#shell_grant_package_name_permission" id="shell_grant_package_name_permission">#</a></span></h3>
-向应用授予权限。在运行 Android 6.0（API 级别 23）及更高版本的设备上，可以是应用清单中声明的任何权限。在运行 Android 5.1（API 级别 22）和更低版本的设备上，必须是应用定义的可选权限。</li>
+<li>--user user_id：要停用的用户。</li>
 </ul>
+<h3>grant package_name permission<span><a class="mark" href="#shell_grant_package_name_permission" id="shell_grant_package_name_permission">#</a></span></h3>
+<p>向应用授予权限。在运行 Android 6.0（API 级别 23）及更高版本的设备上，可以是应用清单中声明的任何权限。在运行 Android 5.1（API 级别 22）和更低版本的设备上，必须是应用定义的可选权限。</p>
 <h3>revoke package_name permission<span><a class="mark" href="#shell_revoke_package_name_permission" id="shell_revoke_package_name_permission">#</a></span></h3>
 <p>从应用中撤销权限。在运行 Android 6.0（API 级别 23）及更高版本的设备上，可以是应用清单中声明的任何权限。在运行 Android 5.1（API 级别 22）和更低版本的设备上，必须是应用定义的可选权限。</p>
 <h3>set-install-location location<span><a class="mark" href="#shell_set_install_location_location" id="shell_set_install_location_location">#</a></span></h3>

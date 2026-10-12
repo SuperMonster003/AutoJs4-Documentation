@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>用户界面: UI | Auto.js 4.1.0</title>
+  <title>用户界面: UI | Auto.js 4.1.0 文档</title>
   <link rel="stylesheet" href="assets/fonts.css">
   <link rel="stylesheet" href="assets/style.css">
   <link rel="stylesheet" href="assets/sh.css">
@@ -30,7 +30,6 @@
 <li><a class="nav-canvas" href="canvas.html">Canvas - 画布</a></li>
 <li><a class="nav-console" href="console.html">Console - 控制台</a></li>
 <li><a class="nav-coordinatesBasedAutomation" href="coordinatesBasedAutomation.html">CoordinatesBasedAutomation - 基于坐标的操作</a></li>
-<li><a class="nav-crypto" href="crypto.html">Crypto - 加解密与消息摘要</a></li>
 <li><a class="nav-device" href="device.html">Device - 设备</a></li>
 <li><a class="nav-dialogs" href="dialogs.html">Dialogs - 对话框</a></li>
 <li><a class="nav-engines" href="engines.html">Engines - 脚本引擎</a></li>
@@ -63,7 +62,7 @@
 
     <div id="column1" data-id="ui" class="interior">
       <header>
-        <h1>Auto.js 4.1.0</h1>
+        <h1>Auto.js 4.1.0 文档</h1>
         <div id="gtoc">
           <p>
             <a href="index.html" name="toc">索引</a> |
@@ -198,7 +197,6 @@
 <li><span class="stability_undefined"><a href="#ui_ui_post_callback_delay_0">ui.post(callback[, delay = 0])</a></span></li>
 <li><span class="stability_undefined"><a href="#ui_ui_run_callback">ui.run(callback)</a></span></li>
 <li><span class="stability_undefined"><a href="#ui_ui_statusbarcolor_color">ui.statusBarColor(color)</a></span></li>
-<li><span class="stability_undefined"><a href="#ui_ui_useandroidresources">ui.useAndroidResources()</a></span></li>
 </ul>
 </li>
 <li><span class="stability_undefined"><a href="#ui_dimension">尺寸的单位: Dimension</a></span></li>
@@ -214,7 +212,7 @@
 <pre><code>给Android开发者或者高阶用户的提醒，Auto.js的UI系统来自于Android，所有属性和方法都能在Android源码中找到。如果某些代码或属性没有出现在Auto.js的文档中，可以参考Android的文档。
 View: https://developer.android.google.cn/reference/android/view/View?hl=cn
 Widget: https://developer.android.google.cn/reference/android/widget/package-summary?hl=cn
-</code></pre><p>带有ui的脚本的的最前面必须使用<code>&quot;ui&quot;;</code>指定ui模式，否则脚本将不会以ui模式运行。正确示范:s</p>
+</code></pre><p>带有ui的脚本的的最前面必须使用<code>&quot;ui&quot;;</code>指定ui模式，否则脚本将不会以ui模式运行。正确示范:</p>
 <pre><code>&quot;ui&quot;;
 
 //脚本的其他代码
@@ -222,7 +220,7 @@ Widget: https://developer.android.google.cn/reference/android/widget/package-sum
 <p>界面是由视图(View)组成的。View分成两种，控件(Widget)和布局(Layout)。控件(Widget)用来具体显示文字、图片、网页等，比如文本控件(text)用来显示文字，按钮控件(button)则可以显示一个按钮并提供点击效果，图片控件(img)则用来显示来自网络或者文件的图片，除此之外还有输入框控件(input)、进度条控件(progressbar)、单选复选框控件(checkbox)等；布局(Layout)则是装着一个或多个控件的&quot;容器&quot;，用于控制在他里面的控件的位置，比如垂直布局(vertical)会把他里面的控件从上往下依次显示(即纵向排列)，水平布局(horizontal)则会把他里面的控件从左往右依次显示(即横向排列)，以及帧布局(frame)，他会把他里面的控件直接在左上角显示，如果有多个控件，后面的控件会重叠在前面的控件上。</p>
 <p>我们使用xml来编写界面，并通过<code>ui.layout()</code>函数指定界面的布局xml。举个例子：</p>
 <pre><code>&quot;ui&quot;;
-$ui.layout(
+ui.layout(
     &lt;vertical&gt;
         &lt;button text=&quot;第一个按钮&quot;/&gt;
         &lt;button text=&quot;第二个按钮&quot;/&gt;
@@ -266,23 +264,23 @@ ui.layout(
 </div><p>设置属性的值。属性指定是View在xml中的属性。例如可以通过语句<code>attr(&quot;text&quot;, &quot;文本&quot;)</code>来设置文本控件的文本值。</p>
 <pre><code class="lang-javascript">&quot;ui&quot;;
 
-$ui.layout(
+ui.layout(
     &lt;frame&gt;
         &lt;text id=&quot;example&quot; text=&quot;Hello&quot;/&gt;
     &lt;/frame&gt;
 );
 
 // 5秒后执行
-$ui.post(() =&gt; {
+ui.post(() =&gt; {
     // 修改文本
-    $ui.example.attr(&quot;text&quot;, &quot;Hello, Auto.js UI&quot;);
+    ui.example.attr(&quot;text&quot;, &quot;Hello, Auto.js UI&quot;);
     // 修改背景
-    $ui.example.attr(&quot;bg&quot;, &quot;#ff00ff&quot;);
+    ui.example.attr(&quot;bg&quot;, &quot;#ff00ff&quot;);
     // 修改高度
-    $ui.example.attr(&quot;h&quot;, &quot;500dp&quot;);
+    ui.example.attr(&quot;h&quot;, &quot;500dp&quot;);
 }, 5000);
 </code></pre>
-<p><strong>注意：</strong>并不是所有属性都能在js代码设置，有一些属性只能在布局创建时设置，例如style属性；还有一些属性虽然能在代码中设置，但是还没支持；对于这些情况，在Auto.js Pro 8.1.0+会抛出异常，其他版本则不会抛出异常。</p>
+<p><strong>注意：</strong>并不是所有属性都能在js代码设置，有一些属性只能在布局创建时设置，例如style属性；还有一些属性虽然能在代码中设置，但是还没支持。</p>
 <h2>attr(name)<span><a class="mark" href="#ui_attr_name" id="ui_attr_name">#</a></span></h2>
 <div class="signature"><ul>
 <li><code>name</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 属性名称</li>
@@ -291,7 +289,7 @@ $ui.post(() =&gt; {
 </div><p>获取属性的值。</p>
 <pre><code class="lang-javascript">&quot;ui&quot;;
 
-$ui.layout(
+ui.layout(
     &lt;frame&gt;
         &lt;text id=&quot;example&quot; text=&quot;1&quot;/&gt;
     &lt;/frame&gt;
@@ -301,15 +299,15 @@ plusOne();
 
 function plusOne() {
     // 获取文本
-    let text = $ui.example.attr(&quot;text&quot;);
+    let text = ui.example.attr(&quot;text&quot;);
     // 解析为数字
     let num = parseInt(text);
     // 数字加1
     num++;
     // 设置文本
-    $ui.example.attr(&quot;text&quot;, String(num));
+    ui.example.attr(&quot;text&quot;, String(num));
     // 1秒后继续
-    $ui.post(plusOne, 1000);
+    ui.post(plusOne, 1000);
 }
 
 </code></pre>
@@ -406,7 +404,7 @@ ui.layout(
 );
 </code></pre><p>第一个按钮的margin属性指定了他的边距为30dp, 也就是他与水平布局以及第二个按钮的间距都是30dp, 其显示效果如图:</p>
 <p><img src="images/ex1-margin.png" alt="ex1-margin"></p>
-<p>如果把<code>margin=&quot;30&quot;</code>改成<code>margin=&quot;10 40&quot;</code>那么第一个按钮的上下间距为10dp, 左右间距为40dp, 效果如图:</p>
+<p>如果把<code>margin=&quot;30&quot;</code>改成<code>margin=&quot;10 40&quot;</code>那么第一个按钮的左右间距为10dp, 上下间距为40dp, 效果如图:</p>
 <p><img src="images/ex2-margin.png" alt="ex2-margin"></p>
 <p>有关margin属性的单位，参见<a href="#ui_尺寸的单位_Dimension">尺寸的单位: Dimension</a>。</p>
 <h2>marginLeft<span><a class="mark" href="#ui_marginleft" id="ui_marginleft">#</a></span></h2>
@@ -844,7 +842,7 @@ ui.layout(
 <p>此函数用于动态创建、显示View。</p>
 <pre><code class="lang-javascript">&quot;ui&quot;;
 
-$ui.layout(
+ui.layout(
     &lt;linear id=&quot;container&quot;&gt;
     &lt;/linear&gt;
 );
@@ -853,11 +851,11 @@ $ui.layout(
 // 这里仅为实例，实际上并不推荐这种做法，如果要展示列表，
 // 使用list组件；动态创建十几个、几十个View会让界面卡顿
 for (let i = 0; i &lt; 3; i++) {
-    let textView = $ui.inflate(
+    let textView = ui.inflate(
         &lt;text textColor=&quot;#000000&quot; textSize=&quot;14sp&quot;/&gt;
-    , $ui.container);
+    , ui.container);
     textView.attr(&quot;text&quot;, &quot;文本控件&quot; + i);
-    $ui.container.addView(textView);
+    ui.container.addView(textView);
 }
 </code></pre>
 <h1>ui.registerWidget(name, widget)<span><a class="mark" href="#ui_ui_registerwidget_name_widget" id="ui_ui_registerwidget_name_widget">#</a></span></h1>
@@ -873,10 +871,10 @@ for (let i = 0; i &lt; 3; i++) {
 </div><p>返回当前线程是否是UI线程。</p>
 <pre><code class="lang-javascript">&quot;ui&quot;;
 
-log($ui.isUiThread()); // =&gt; true
+log(ui.isUiThread()); // =&gt; true
 
-$threads.start(function () {
-    log($ui.isUiThread()); // =&gt; false
+threads.start(function () {
+    log(ui.isUiThread()); // =&gt; false
 });
 
 </code></pre>
@@ -886,7 +884,7 @@ $threads.start(function () {
 <li>返回 <span class="type">&lt;View&gt;</span></li>
 </ul>
 </div><p>在当前视图中根据ID查找相应的视图对象并返回。如果当前未设置视图或找不到此ID的视图时返回<code>null</code>。</p>
-<p>一般我们都是通过<code>ui.xxx</code>来获取id为xxx的控件，如果xxx是一个ui已经有的属性，就可以通过<code>$ui.findView()</code>来获取这个控件。</p>
+<p>一般我们都是通过<code>ui.xxx</code>来获取id为xxx的控件，如果xxx是一个ui已经有的属性，就可以通过<code>ui.findView()</code>来获取这个控件。</p>
 <h2>ui.finish()<span><a class="mark" href="#ui_ui_finish" id="ui_ui_finish">#</a></span></h2>
 <p>结束当前活动并销毁界面。</p>
 <h2>ui.setContentView(view)<span><a class="mark" href="#ui_ui_setcontentview_view" id="ui_ui_setcontentview_view">#</a></span></h2>
@@ -910,10 +908,10 @@ ui.layout(
 );
 
 ui.result.attr(&quot;text&quot;, &quot;计算中&quot;);
-// 在子线程中计算1+ ... + 10000000
-threads.start({
+// 在子线程中计算1+ ... + 1000000
+threads.start(function () {
     let sum = 0;
-    for (let i = 0; i &lt; 1000000; i++) {
+    for (let i = 1; i &lt;= 1000000; i++) {
         sum += i;
     }
     // 由于不能在子线程操作UI，所以要抛到UI线程执行
@@ -936,24 +934,6 @@ threads.start({
 <pre><code class="lang-javascript">&quot;ui&quot;;
 ui.statusBarColor(&quot;#000000&quot;);
 </code></pre>
-<h2>ui.useAndroidResources()<span><a class="mark" href="#ui_ui_useandroidresources" id="ui_ui_useandroidresources">#</a></span></h2>
-<p>启用使用Android的布局(layout)、绘图(drawable)、动画(anim)、样式(style)等资源的特性。启用该特性后，在project.json中进行以下配置，就可以像写Android原生一样写界面：</p>
-<pre><code class="lang-json">{
-    // ...
-    androidResources: {
-        &quot;resDir&quot;: &quot;res&quot;,  // 资源文件夹
-        &quot;manifest&quot;: &quot;AndroidManifest.xml&quot; // AndroidManifest文件路径
-    }
-}
-</code></pre>
-<p>res文件夹通常为以下结构：</p>
-<pre><code>- res
-    - layout  // 布局资源
-    - drawable // 图片、形状等资源
-    - menu // 菜单资源
-    - values // 样式、字符串等资源
-    // ...
-</code></pre><p>可参考示例-&gt;复杂界面-&gt;Android原生界面。</p>
 <h1>尺寸的单位: Dimension<span><a class="mark" href="#ui_dimension" id="ui_dimension">#</a></span></h1>
 <h1>Drawables<span><a class="mark" href="#ui_drawables" id="ui_drawables">#</a></span></h1>
 <h1>颜色<span><a class="mark" href="#ui" id="ui">#</a></span></h1>

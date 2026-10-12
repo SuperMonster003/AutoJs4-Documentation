@@ -180,6 +180,7 @@ am命令即Activity Manager命令，用于管理应用程序活动、服务等�
 选项包括：
 
 * --gdb：在崩溃/ANR 时在给定端口上启动 gdbserv。
+
 ### screen-compat {on|off} package	
 控制 package 的屏幕兼容性模式。
 
@@ -190,12 +191,14 @@ am命令即Activity Manager命令，用于管理应用程序活动、服务等�
 shell("am display-size 1280x800", true);
 	
 ```
+
 ### display-density dpi 
 替换模拟器/设备显示密度。此命令对于在不同密度的屏幕上测试您的应用非常有用，它支持使用低密度屏幕在高密度环境环境上进行测试（反之亦然）。  
 示例：
 ```
 shell("am display-density 480", true);
 ```
+
 ### to-uri intent	
 将给定的 intent 规范以 URI 的形式输出。
 请参阅  [intent 参数的规范](#shell_intent)。
@@ -287,6 +290,7 @@ shell("am display-density 480", true);
 包含标志 FLAG_RECEIVER_REPLACE_PENDING。
 * --selector  
 需要使用 -d 和 -t 选项以设置 intent 数据和类型。
+
 #### URI component package
 如果不受上述某一选项的限制，您可以直接指定 URI、软件包名称和组件名称。当参数不受限制时，如果参数包含一个“:”（冒号），则此工具假定参数是一个 URI；如果参数包含一个“/”（正斜杠），则此工具假定参数是一个组件名称；否则，此工具假定参数是一个软件包名称。
 
@@ -315,6 +319,7 @@ pm命令用于管理应用程序，例如卸载应用、冻结应用等。
 
 ### list permission-groups	
 输出所有已知的权限组。
+
 ### list permissions [options] group	
 输出所有已知权限，或者，仅输出 group 中的权限。  
 选项：
@@ -334,12 +339,16 @@ pm命令用于管理应用程序，例如卸载应用、冻结应用等。
 
 ### list features	
 输出系统的所有功能。
+
 ### list libraries	
 输出当前设备支持的所有库。
+
 ### list users	
 输出系统上的所有用户。
+
 ### path package	
 输出给定 package 的 APK 的路径。  
+
 ### install [options] path	
 将软件包（通过 path 指定）安装到系统。  
 选项：
@@ -359,6 +368,7 @@ pm命令用于管理应用程序，例如卸载应用、冻结应用等。
 选项：
 
 * -k：移除软件包后保留数据和缓存目录。
+
 ### clear package	
 删除与软件包关联的所有数据。
 
@@ -373,6 +383,7 @@ pm命令用于管理应用程序，例如卸载应用、冻结应用等。
 选项：
 
 * --user user_id：要停用的用户。
+
 ### grant package_name permission
 向应用授予权限。在运行 Android 6.0（API 级别 23）及更高版本的设备上，可以是应用清单中声明的任何权限。在运行 Android 5.1（API 级别 22）和更低版本的设备上，必须是应用定义的可选权限。
 

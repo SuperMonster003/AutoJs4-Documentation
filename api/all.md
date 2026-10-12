@@ -4,7 +4,6 @@
 @include canvas
 @include console
 @include coordinatesBasedAutomation
-@include crypto
 @include device
 @include dialogs
 @include engines

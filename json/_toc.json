@@ -120,16 +120,6 @@
     },
     {
       "type": "text",
-      "text": "[Crypto - 加解密与消息摘要](crypto.html)"
-    },
-    {
-      "type": "list_item_end"
-    },
-    {
-      "type": "list_item_start"
-    },
-    {
-      "type": "text",
       "text": "[Device - 设备](device.html)"
     },
     {

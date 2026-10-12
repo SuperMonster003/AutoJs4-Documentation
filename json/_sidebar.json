@@ -81,16 +81,6 @@
     },
     {
       "type": "text",
-      "text": "[加解密与消息摘要 - Crypto](/crypto)"
-    },
-    {
-      "type": "list_item_end"
-    },
-    {
-      "type": "list_item_start"
-    },
-    {
-      "type": "text",
       "text": "[设备 - Device](/device)"
     },
     {
