@@ -1,0 +1,20 @@
+{
+  "labels": {
+    "hint": "ヒント",
+    "feature": "機能",
+    "fix": "修正",
+    "improvement": "改善",
+    "dependency": "依存関係"
+  },
+  "$data": {
+    "2026-10-13": {
+      "released_date": "2026/10/13",
+      "entries": [
+        {
+          "category": "feature",
+          "text": "リポジトリ紹介と保守履歴の 10 言語生成, 読み取り専用チェック, CI 検証, 原版文書へのリンク"
+        }
+      ]
+    }
+  }
+}

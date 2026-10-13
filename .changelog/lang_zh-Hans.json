@@ -1,0 +1,20 @@
+{
+  "labels": {
+    "hint": "提示",
+    "feature": "新增",
+    "fix": "修复",
+    "improvement": "优化",
+    "dependency": "依赖"
+  },
+  "$data": {
+    "2026-10-13": {
+      "released_date": "2026/10/13",
+      "entries": [
+        {
+          "category": "feature",
+          "text": "仓库介绍和维护记录的 10 种语言生成, 只读检查及 CI 校验, 保留原始文档入口"
+        }
+      ]
+    }
+  }
+}

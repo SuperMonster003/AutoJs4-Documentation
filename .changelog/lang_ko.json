@@ -1,0 +1,20 @@
+{
+  "labels": {
+    "hint": "안내",
+    "feature": "기능",
+    "fix": "수정",
+    "improvement": "개선",
+    "dependency": "의존성"
+  },
+  "$data": {
+    "2026-10-13": {
+      "released_date": "2026/10/13",
+      "entries": [
+        {
+          "category": "feature",
+          "text": "저장소 소개와 유지보수 기록의 10개 언어 생성, 읽기 전용 검사, CI 검증 및 원본 문서 링크"
+        }
+      ]
+    }
+  }
+}

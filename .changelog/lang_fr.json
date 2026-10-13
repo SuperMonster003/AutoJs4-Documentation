@@ -1,0 +1,20 @@
+{
+  "labels": {
+    "hint": "Note",
+    "feature": "Fonctionnalité",
+    "fix": "Correction",
+    "improvement": "Amélioration",
+    "dependency": "Dépendance"
+  },
+  "$data": {
+    "2026-10-13": {
+      "released_date": "2026/10/13",
+      "entries": [
+        {
+          "category": "feature",
+          "text": "Présentation du dépôt et historique de maintenance générés en 10 langues, avec contrôles en lecture seule, validation CI et accès aux documents originaux"
+        }
+      ]
+    }
+  }
+}

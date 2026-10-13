@@ -1,0 +1,20 @@
+{
+  "labels": {
+    "hint": "Nota",
+    "feature": "Función",
+    "fix": "Corrección",
+    "improvement": "Mejora",
+    "dependency": "Dependencia"
+  },
+  "$data": {
+    "2026-10-13": {
+      "released_date": "2026/10/13",
+      "entries": [
+        {
+          "category": "feature",
+          "text": "Presentación del repositorio e historial de mantenimiento generados en 10 idiomas, con comprobaciones de solo lectura, validación CI y enlaces a los documentos originales"
+        }
+      ]
+    }
+  }
+}

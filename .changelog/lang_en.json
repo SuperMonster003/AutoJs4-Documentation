@@ -1,0 +1,20 @@
+{
+  "labels": {
+    "hint": "Hint",
+    "feature": "Feature",
+    "fix": "Fix",
+    "improvement": "Improvement",
+    "dependency": "Dependency"
+  },
+  "$data": {
+    "2026-10-13": {
+      "released_date": "2026/10/13",
+      "entries": [
+        {
+          "category": "feature",
+          "text": "Repository introductions and maintenance history generated in 10 languages, with read-only checks, CI validation, and links to original documents"
+        }
+      ]
+    }
+  }
+}
